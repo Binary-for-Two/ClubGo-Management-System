@@ -88,6 +88,11 @@ const onSubmit = ({ validateResult, firstError }) => {
     MessagePlugin.success("正在登录");
     api.club.login(formData).then((res) => {
       console.log(res);
+      if (res === 400) {
+        MessagePlugin.error("登录失败");
+        return;
+      }
+      localStorage.setItem("account", formData.account);
       router.push("/backend");
     });
   } else {

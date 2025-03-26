@@ -1,5 +1,7 @@
 import Axios from "axios";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const api = Axios.create({
   baseURL: "https://cyympawkab.bja.sealos.run",
 });
@@ -11,6 +13,9 @@ api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
+  } else {
+    router.push("/login");
+    return config;
   }
   return config;
 });

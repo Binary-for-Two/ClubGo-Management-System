@@ -10,6 +10,9 @@ const clubAPI = {
 
   login: async (formData) => {
     const res = await api.post("/clubs/login", formData);
+    if (res.data === "400") {
+      return null;
+    }
     localStorage.setItem("token", res.data);
     return res.data;
   },
