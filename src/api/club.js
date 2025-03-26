@@ -1,7 +1,7 @@
 import api from "./base";
 
 const clubAPI = {
-  getClubProfile: async (account) => {
+  getClubProfileByAccount: async (account) => {
     const res = await api.get(
       "/clubs/GetClubProfileByAccount?account=" + account,
     );

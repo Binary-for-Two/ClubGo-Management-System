@@ -33,7 +33,7 @@ onMounted(() => {
     console.log(editorInstance.value.getMDEInstance());
   }
 
-  api.club.getClubProfile(account).then((data) => {
+  api.club.getClubProfileByAccount(account).then((data) => {
     console.log(data);
     if (data === "") {
       initialValue.value = "请输入社团简介";
